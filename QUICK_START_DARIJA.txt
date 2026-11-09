@@ -1,0 +1,12 @@
+GreenShield AI - Windows quick start
+
+1. Extract this ZIP to a NEW folder. Do not run from inside the ZIP.
+2. Copy your existing backend/.env to the new backend/.env, but REPLACE any previously shared NVIDIA key with a newly generated key. Never paste Python requests code into .env.
+3. Keep NVIDIA_API_KEY=nvapi-... on one line. Set NVIDIA_MODEL=meta/llama-3.2-11b-vision-instruct.
+4. Double click START_HERE_WINDOWS.bat. It starts the backend on 8001 and frontend on an available 517x port.
+5. Open the Local frontend URL shown in the terminal. Register/login, then Plant Doctor > Check AI setup > upload a real plant photo.
+6. If backend 8001 is already in use, close the existing backend terminal (Ctrl+C), then restart the launcher.
+7. Key detected only checks local configuration. A real diagnosis requires valid NVIDIA access, network, and model entitlement.
+8. PayPal live payments require real PayPal client credentials, plan IDs, and production webhook configuration. Test in sandbox first.
+
+SECURITY: The NVIDIA key shared in chat must be revoked/rotated before use. No keys are included in this archive.
