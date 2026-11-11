@@ -277,7 +277,7 @@ def cancel_subscription(subscription_id:str,u=Depends(auth)):
  return {'status':'CANCELLED'}
 @app.get('/api/ai/provider-check')
 def provider_check(u=Depends(auth)):
- return {'provider':'Groq','configured':bool(get_groq_key()),'model':get_groq_model(),'message':'Configuration only; use Plant Doctor to verify a real API request.'}
-                 @app.get("/")
+ return {'provider':'Groq','configured':bool(get_groq_key()),'model':get_groq_model(),'message':'Configuration only; use Plant Doctor to verify a real API request.'}                                                                                                                              @app.get("/")
+@app.get("/")
 def home():
-    return {"message": "GreenShield AI API is running"}                                                                                                                                 
+    return {"message": "GreenShield AI API is running"}
