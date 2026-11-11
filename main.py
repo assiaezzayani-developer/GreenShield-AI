@@ -279,3 +279,6 @@ def cancel_subscription(subscription_id:str,u=Depends(auth)):
 def provider_check(u=Depends(auth)):
  return {'provider':'Groq','configured':bool(get_groq_key()),'model':get_groq_model(),'message':'Configuration only; use Plant Doctor to verify a real API request.'}
 app=FastAPI(title='GreenShield AI API',version='2.0')                                                                                                                                                    
+@app.get("/")
+def home():
+    return {"message": "GreenShield AI API is running"}
