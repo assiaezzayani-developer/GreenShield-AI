@@ -10,13 +10,17 @@ from itsdangerous import URLSafeTimedSerializer, BadSignature, SignatureExpired
 load_dotenv(Path(__file__).with_name('.env'), override=True)
 ROOT=Path(__file__).parent; MEDIA=ROOT/'uploads'; MEDIA.mkdir(exist_ok=True)
 DB=ROOT/'greenshield.db'; SECRET=os.getenv('APP_SECRET','dev-only-change-this-secret'); signer=URLSafeTimedSerializer(SECRET)
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+
+app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["https://greenshield-ai-frontend.onrender.com"],
     allow_methods=["*"],
     allow_headers=["*"],
+)
 )
 app.mount('/uploads',StaticFiles(directory=MEDIA),name='uploads')
 def db():
