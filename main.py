@@ -17,7 +17,10 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://greenshield-ai-1.onrender.com"],
+    allow_origins=[
+    "https://greenshield-ai-1.onrender.com",
+    "https://greenshield-ai-frontend.onrender.com"
+],
     allow_methods=["*"],
     allow_headers=["*"],
 
