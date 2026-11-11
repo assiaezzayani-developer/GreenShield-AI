@@ -274,7 +274,7 @@ def cancel_subscription(subscription_id:str,u=Depends(auth)):
  if record['status'] in ('CANCELLED','EXPIRED'):return {'status':record['status']}
  paypal_api('POST','/v1/billing/subscriptions/'+subscription_id+'/cancel',{'reason':'Cancelled by subscriber'})
  with db() as c:c.execute('UPDATE subscriptions SET status=?,updated_at=? WHERE paypal_id=?',('CANCELLED',now(),subscription_id))
- return {'status':'CANCELLED'}
+ return {'status':'CANCELLED
 @app.get('/api/ai/provider-check')
 def provider_check(u=Depends(auth)):
  return {'provider':'Groq','configured':bool(get_groq_key()),'model':get_groq_model(),'message':'Configuration only; use Plant Doctor to verify a real API request.'}                                                                                                                              @app.get("/")
