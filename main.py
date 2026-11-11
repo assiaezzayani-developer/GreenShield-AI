@@ -20,7 +20,7 @@ app.add_middleware(
     allow_origins=["https://greenshield-ai-frontend.onrender.com"],
     allow_methods=["*"],
     allow_headers=["*"],
-)
+
 )
 app.mount('/uploads',StaticFiles(directory=MEDIA),name='uploads')
 def db():
