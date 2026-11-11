@@ -10,16 +10,11 @@ from itsdangerous import URLSafeTimedSerializer, BadSignature, SignatureExpired
 load_dotenv(Path(__file__).with_name('.env'), override=True)
 ROOT=Path(__file__).parent; MEDIA=ROOT/'uploads'; MEDIA.mkdir(exist_ok=True)
 DB=ROOT/'greenshield.db'; SECRET=os.getenv('APP_SECRET','dev-only-change-this-secret'); signer=URLSafeTimedSerializer(SECRET)
-app=FastAPI(title='GreenShield AI API',version='2.0')
+from fastapi.middleware.cors import CORSMiddleware
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "https://greenshield-ai-frontend.onrender.com",
-        "http://localhost:5173",
-        "http://127.0.0.1:5173",
-    ],
-    allow_origin_regex=r"^https?://(?:localhost|127\.0\.0\.1):[0-9]{2,5}$",
-    allow_credentials=True,
+    allow_origins=["https://greenshield-ai-frontend.onrender.com"],
     allow_methods=["*"],
     allow_headers=["*"],
 )
